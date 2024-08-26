@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="D:/Descargas/Diagramas Diseño/SistemaHorarios/database/materias.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="browser pragmas query structure" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1551"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,13:mainmateriaXcurso"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Curso" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="1" mode="0"/></sort><column_widths><column index="1" value="40"/><column index="2" value="43"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Materias" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="2" mode="0"/></sort><column_widths><column index="1" value="40"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="materiaXcurso" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="242"/><column index="2" value="56"/><column index="3" value="78"/><column index="4" value="61"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE Materias (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+	acronimo TEXT NOT NULL UNIQUE, 
+    anioCurso INTEGER NOT NULL 
+);
+
+CREATE TABLE Curso (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
+CREATE TABLE materiaXcurso (
+    idMateria TEXT,
+    idCurso INTEGER NOT NULL,
+    fechaInicio TEXT NOT NULL,
+    fechaFin TEXT NOT NULL,
+    PRIMARY KEY(idMateria, idCurso),
+    FOREIGN KEY (idMateria) REFERENCES Materias(id),
+    FOREIGN KEY (idCurso) REFERENCES Curso(id)
+);
+</sql><sql name="SQL 2">--INSERT INTO  Materias (id, name, acronimo, anioCurso)
+--VALUES ('2aac0cab-cc2a-4c4a-a7e6-cfe83821d5b2', 'Matematica Discret', 'MAD', 1);
+ 
+--INSERT INTO  Curso (id, name)
+--VALUES (1, 'K1');
+
+--INSERT INTO materiaXcurso (idMateria, idCurso, fechaInicio, fechaFin)
+--VALUES ('2aac0cab-cc2a-4c4a-a7e6-cfe83821d5b2', 1, '10/04', '30/06');
+
+--INSERT INTO  Materias (id, name, acronimo, anioCurso)
+--VALUES ('da573019-b15e-41d8-99b9-e20504382010', 'Algoritmo y estructura de datos', 'AED', 1);
+ 
+--INSERT INTO  Curso (id, name)
+--VALUES (10, 'K10');
+
+INSERT INTO materiaXcurso (idMateria, idCurso, fechaInicio, fechaFin)
+VALUES ('da573019-b15e-41d8-99b9-e20504382010', 4, '10/04', '30/11');</sql><sql name="SQL 3">DROP TABLE IF EXISTS Materias
+</sql><sql name="SQL 4">SELECT m.name, c.name
+from Materias m
+JOIN materiaXcurso x ON m.id == x.idMateria
+JOIN Curso c ON c.id == x.idCurso  
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
