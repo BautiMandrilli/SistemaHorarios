@@ -1,40 +1,33 @@
 #Recuperar todas las peliculas 
 ##GET http://localhost:3000/movies
 
-###Recuperar una pelicula por id
-
-GET http://localhost:64000
-
 ###Recuperar todas las materias
 GET http://localhost:64000/materias
 
 ###Recuperar materia por ID
 
-GET http://localhost:64000/materias/2aac0cab-cc2a-4c4a-a7e6-cfe83821d5b2
+GET http://localhost:64000/materias/A
 
 ###Crear una materia
 
 POST http://localhost:64000/materias
-Content-Type: application/json
+Content-Type: application/json 
 
 {
-    "acronimo": "AM2",
-    "name": "Analisis matematico 2",
-    "notaPromocion": 6,
-    "notaRegularidad": 6,
-    "tipoCursado": 1,
-    "curso": [
-      "K1",
-      "K2",
-      "K3",
-      "K4",
-      "K5"
-    ],
-    "anio": 2
-  }
+  "name": "Logica",
+  "acronimo": "LOG"
+}
+ 
 
 ### Borrar una materia 
-DELETE http://localhost:64000/materias/MAD
+DELETE http://localhost:64000/Materias/A
 
 ### Modificar parcialmente una materia 
-PATCH http://localhost:64000/materias/SOR
+PATCH http://localhost:64000/materias/A
+Content-Type: : application/json
+
+
+{
+    "name": "Logica discreta",
+    "acronimo": "LOS"
+}

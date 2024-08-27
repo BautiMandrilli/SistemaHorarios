@@ -1,44 +1,115 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="D:/Descargas/Diagramas Diseño/SistemaHorarios/database/materias.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="browser pragmas query structure" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1551"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,13:mainmateriaXcurso"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Curso" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="1" mode="0"/></sort><column_widths><column index="1" value="40"/><column index="2" value="43"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Materias" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="2" mode="0"/></sort><column_widths><column index="1" value="40"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="materiaXcurso" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="242"/><column index="2" value="56"/><column index="3" value="78"/><column index="4" value="61"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE Materias (
-    id TEXT PRIMARY KEY,
-    name TEXT NOT NULL,
-	acronimo TEXT NOT NULL UNIQUE, 
-    anioCurso INTEGER NOT NULL 
-);
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="D:/Descargas/Diagramas Diseño/SistemaHorarios/SistemaHorarios/database/materias.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="browser pragmas query structure" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2777"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,19:mainMateriaXCorrelativa"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Carrera" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="43"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Curso" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="43"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Cursos" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="44"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="FechaClase" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="61"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="MatXCursoXTipoCuatXClase" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="69"/><column index="2" value="56"/><column index="3" value="84"/><column index="4" value="90"/><column index="5" value="72"/><column index="6" value="55"/><column index="7" value="85"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="MateriaXCarrera" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="69"/><column index="2" value="69"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="MateriaXCorrelativa" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="132"/><column index="2" value="141"/><column index="3" value="117"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="Materias" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="251"/><column index="2" value="187"/><column index="3" value="67"/><column index="4" value="72"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="TipoCorrelativa" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="62"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="TipoCuatrimestre" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="135"/><column index="3" value="78"/><column index="4" value="73"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="materiaXcurso" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="251"/><column index="2" value="56"/><column index="3" value="78"/><column index="4" value="61"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">INSERT INTO MateriaXCarrera(idMateria, idCarrera)
+VALUES ('A', 'K'),
+		('B', 'K'), 
+		('C', 'K');
 
-CREATE TABLE Curso (
-    id INTEGER PRIMARY KEY,
-    name TEXT NOT NULL
-);
+		</sql><sql name="SQL 2">DROP TABLE if EXISTS Curso</sql><sql name="SQL 3">--CREATE TABLE Cursos(
+--id TEXT PRIMARY KEY,
+--turno TEXT NOT NULL
+--);
 
-CREATE TABLE materiaXcurso (
+--Create TABLE PROFESOR (
+--id INTEGER PRIMARY KEY,
+--name TEXT NOT NULL
+--);
+
+--CREATE TABLE Materias (
+--id TEXT PRIMARY KEY,
+--name TEXT NOT NULL,
+--acronimo VARCHAR(3) NOT NULL 
+--);
+
+--Create TABLE TipoCuatrimestre(
+--id INTEGER PRIMARY KEY,
+--name TEXT NOT NULL,
+--fechaInicio TEXT NOT NULL,
+--fechaFin TEXT NOT NULL
+--);
+
+
+--CREATE TABLE TipoCorrelativa (
+--id INTEGER PRIMARY KEY,
+--name TEXT NOT NULL
+--);
+
+--CREATE TABLE Carrera (
+--id TEXT PRIMARY KEY,
+--name TEXT NOT NULL
+--);
+
+--CREATE TABLE FechaClase (
+--id INTEGER PRIMARY KEY,
+--name TEXT NOT NULL
+--);
+
+CREATE TABLE MateriaXCarrera(
     idMateria TEXT,
-    idCurso INTEGER NOT NULL,
-    fechaInicio TEXT NOT NULL,
-    fechaFin TEXT NOT NULL,
-    PRIMARY KEY(idMateria, idCurso),
-    FOREIGN KEY (idMateria) REFERENCES Materias(id),
-    FOREIGN KEY (idCurso) REFERENCES Curso(id)
+    idCarrera TEXT,
+    PRIMARY KEY(idMateria, idCarrera),
+    FOREIGN KEY(idMateria) REFERENCES Materias(id),
+    FOREIGN KEY(idCarrera) REFERENCES Carrera(id)
 );
-</sql><sql name="SQL 2">--INSERT INTO  Materias (id, name, acronimo, anioCurso)
---VALUES ('2aac0cab-cc2a-4c4a-a7e6-cfe83821d5b2', 'Matematica Discret', 'MAD', 1);
- 
---INSERT INTO  Curso (id, name)
---VALUES (1, 'K1');
 
---INSERT INTO materiaXcurso (idMateria, idCurso, fechaInicio, fechaFin)
---VALUES ('2aac0cab-cc2a-4c4a-a7e6-cfe83821d5b2', 1, '10/04', '30/06');
+CREATE TABLE MateriaXCorrelativa(
+    idMateriaAInscribir TEXT,
+    idMateriaCorrelativa TEXT,
+    idTipoCorrelativa INTEGER NOT NULL,
+    PRIMARY KEY(idMateriaAInscribir, idMateriaCorrelativa),
+    FOREIGN KEY(idMateriaAInscribir) REFERENCES Materias(id),
+    FOREIGN KEY(idMateriaCorrelativa) REFERENCES Materias(id),
+    FOREIGN KEY(idTipoCorrelativa) REFERENCES TipoCorrelativa(id)
+);
 
---INSERT INTO  Materias (id, name, acronimo, anioCurso)
---VALUES ('da573019-b15e-41d8-99b9-e20504382010', 'Algoritmo y estructura de datos', 'AED', 1);
- 
---INSERT INTO  Curso (id, name)
---VALUES (10, 'K10');
+CREATE TABLE MatXCursoXTipoCuatXClase (
+    idMateria TEXT,
+    idCurso TEXT,
+    idTipoCuatri INTEGER,
+    idFechaClase INTEGER,
+    horaInicio TEXT NOT NULL,
+    horaFin TEXT NOT NULL,
+    calsificacion TEXT,
+    PRIMARY KEY(idMateria, idCurso, idTipoCuatri, idFechaClase),
+    FOREIGN KEY(idMateria) REFERENCES Materias(id),
+    FOREIGN KEY(idCurso) REFERENCES Cursos(id),
+    FOREIGN KEY(idTipoCuatri) REFERENCES TipoCuatrimestre(id),
+    FOREIGN KEY(idFechaClase) REFERENCES FechaClase(id)
+);
 
-INSERT INTO materiaXcurso (idMateria, idCurso, fechaInicio, fechaFin)
-VALUES ('da573019-b15e-41d8-99b9-e20504382010', 4, '10/04', '30/11');</sql><sql name="SQL 3">DROP TABLE IF EXISTS Materias
-</sql><sql name="SQL 4">SELECT m.name, c.name
-from Materias m
-JOIN materiaXcurso x ON m.id == x.idMateria
-JOIN Curso c ON c.id == x.idCurso  
+INSERT INTO Materias (id, name, acronimo)
+VALUES ('A', 'Matematica Discrtea', 'MAD'),
+		('B', 'Algoritmos y estructura de datos', 'AED'),
+		('C', 'Analisis Matematico 1', 'AM1') ;
+
+INSERT INTO TipoCuatrimestre(id, name, fechaInicio, fechaFin)
+VALUES (1, 'Primer Cuatrimestre', '2024-03-21', '2024-06-30'),
+		(2, 'Segundo Cuatrimestre', '2024-08-12', '2024-11-30'),
+		(3, 'Anual', '2024-03-21', '2024-11-30');
+		
+Insert INTO TipoCorrelativa (id, name)
+VALUES (1, 'Regular'),
+		(2, 'Aprobada');
+
+INSERT INTO Carrera(id, name)
+VALUES ('K', 'Sistemas'),
+		('C', 'Civil'),
+		('T', 'Metalurgica'),
+		('D', 'Industrial');
+		
+INSERT INTO FechaClase(id, name)
+VALUES (1, 'Lunes'), 
+		(2, 'Martes'),
+		(3, 'Miercoles'), 
+		(4, 'Jueves'), 
+		(5, 'Viernes'),
+		(6, 'Sabado');
+		
+INSERT INTO MatXCursoXTipoCuatXClase(idMateria, idCurso, idTipoCuatri, idFechaClase, horaInicio, horaFin)
+VALUES ('A', 'K1', 1, 1, '08:00', '10:00'),
+		('A', 'K1', 1, 3, '10:30', '13:30'),
+		('B', 'K1', 3, 2, '8:00', '11:00'),
+		('B', 'K1', 3, 5, '12:00', '14:00'),
+		('C', 'K1', 1, 3, '08:00', '10:30'),
+		('B', 'K17', 3, 3, '21:30', '23:00'),
+		('C', 'K10', 1, 4, '16:30', '18:30');
 
 </sql><current_tab id="0"/></tab_sql></sqlb_project>

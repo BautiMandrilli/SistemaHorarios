@@ -1,59 +1,82 @@
-import { readJSON } from "./utils/utils.js"
+import { error } from 'node:console';
 import {randomUUID} from 'node:crypto'
-const materias = readJSON('../database/datosPrueba.json')
+import { DataTypes, Sequelize, STRING, UUID } from "sequelize"
+
+const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: './database/materias.db'
+});
+
+try {
+    await sequelize.authenticate();
+    console.log('Conexion establecida correctamente')
+}
+catch(error){
+    console.error('Problema al conectar con la base de datos', error)
+}
 
 
+const Materia = sequelize.define('Materia', {
+    id: {
+        type: DataTypes.STRING,
+        primaryKey: true,
+        defaultValue: () => randomUUID() 
+        
+    },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            isNull(value){
+                if(value){
+                    throw new Error('No puede ser nulo el nombre')
+                }
+            }
+        }
+    },
+    acronimo: {
+       type: DataTypes.STRING(3),
+        allowNull: false
+    }
+}, {
+        tableName:'Materias',
+        timestamps: false
+    })
 
+sequelize.sync()
+.then(() => console.log('Modelo materia sincronizado'))
+.catch(error => console.log('Error al sincronizar', error))
 
 export class materiaModel {
-    static async getAll  ({ Anio }) {
-        if (Anio) {
-            const materiasFiltradas = materias.filter(materia => materia.Anio === Anio)
-            return materiasFiltradas
-        }
-        else {
-            return materias
-        }
+    static async getAll() {
+
+       return await Materia.findAll();
     }
 
     static async getById ({ id }){
-        const materiaBuscada =  materias.find(materia => materia.id === id)
-    if (materiaBuscada){
-        return materiaBuscada
-    }
-   
+
+        return await Materia.findByPk(id)  
     }
 
-    static async create ({id}) {
-        const newMateria = {
-            id: randomUUID(),
-            ...input
-        };
-            
-        materias.push(newMateria);
-        return newMateria   
+    static async create (input) {
+        console.log(input)
+        return await Materia.create({ input })
+        
     }
 
-    static async delete ({id}){
-        const materiaIndex = materias.findIndex(materia => materia.id === id);
-        if (materiaIndex === -1) return false;
-        materias.splice(materiaIndex, 1)
-        return true
+    static async delete ({ id }){
+        const result  = await Materia.destroy({
+            where: { id }
+        })
+        return result > 0; //Devuelve true si se elimino una fila
     }
 
     static async update({ id, input }){
-        const materiaIndex = materias.findIndex(materia => materia.id === id);
-
-        if (materiaIndex === -1) {
-            return false
-        }
-    
-        
-        materias[materiaIndex] = {
-            ...materias[materiaIndex],
-            ...input,
-        };
-    
-        return 
+        const [updated] = await Materia.update(input, {
+           where:  {id},
+           returning: true
+        });
+        return updated //Devuelve el numero de filas afectadas
+       
     }
 }
