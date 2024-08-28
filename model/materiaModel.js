@@ -26,13 +26,7 @@ const Materia = sequelize.define('Materia', {
     name: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-            isNull(value){
-                if(value){
-                    throw new Error('No puede ser nulo el nombre')
-                }
-            }
-        }
+        
     },
     acronimo: {
        type: DataTypes.STRING(3),
@@ -47,6 +41,8 @@ sequelize.sync()
 .then(() => console.log('Modelo materia sincronizado'))
 .catch(error => console.log('Error al sincronizar', error))
 
+
+
 export class materiaModel {
     static async getAll() {
 
@@ -54,13 +50,16 @@ export class materiaModel {
     }
 
     static async getById ({ id }){
-
         return await Materia.findByPk(id)  
     }
 
     static async create (input) {
+
+        const {name, acronimo} = input
+        console.log(name, acronimo)
         console.log(input)
-        return await Materia.create({ input })
+        const newMateria = await Materia.create( {name, acronimo} )
+        return newMateria
         
     }
 
@@ -71,12 +70,14 @@ export class materiaModel {
         return result > 0; //Devuelve true si se elimino una fila
     }
 
-    static async update({ id, input }){
-        const [updated] = await Materia.update(input, {
-           where:  {id},
-           returning: true
-        });
-        return updated //Devuelve el numero de filas afectadas
+    static async update({ id, input }) {
        
+
+        const [updated] = await Materia.update(input, {
+            where: { id },
+            returning: true,
+        });
+
+        return updated ? input : ({message: "No se encontro la materia a actualizar"})
     }
 }

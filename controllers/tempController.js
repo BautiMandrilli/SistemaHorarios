@@ -33,7 +33,7 @@ export class materiaController {
             return res.status(400).json({ error: JSON.parse(result.error.message) });
         }
         
-        const newMateria = await materiaModel.create({ input: result.data })
+        const newMateria = await materiaModel.create(result.data)
         res.status(201).json(newMateria)
         }
 
@@ -49,7 +49,7 @@ export class materiaController {
             if (result.error) {
             return res.status(400).json({error :JSON.parse(result.error.message)})
             }
-            const updatedMateria = await materiaModel.update({ id, input })
+            const updatedMateria = await materiaModel.update({ id, input: result.data })
             return res.json(updatedMateria);
          }
         
