@@ -9,7 +9,7 @@ const sequelize = new Sequelize({
 
 try {
     await sequelize.authenticate();
-    console.log('Conexion establecida correctamente')
+    console.log('Conexion establecida correctamente(Materias)')
 }
 catch(error){
     console.error('Problema al conectar con la base de datos', error)
