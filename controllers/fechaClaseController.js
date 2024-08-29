@@ -1,5 +1,5 @@
 import { fechaClaseModel } from "../model/fechaClaseModel.js";
-import { validatefechaClase, validatePartialfechaClase } from "../Schemas/fechaClaseSchema.js";
+import { validateFClase, validatePartialFClase } from "../Schemas/fechaClaseSchema.js";
 
 export class fechaClaseController {
     static async getAll(req, res) {
@@ -27,7 +27,7 @@ export class fechaClaseController {
 
     static async create (req, res) {
         try {
-        const result = validatefechaClase(req.body);
+        const result = validateFClase(req.body);
         console.log(result)
         
         if (result.error){
@@ -47,7 +47,7 @@ export class fechaClaseController {
     static async update(req, res){
         try {
             const { id } = req.params;
-            const result = validatePartialfechaClase(req.body);
+            const result = validatePartialFClase(req.body);
             if (result.error) {
             return res.status(400).json({error :JSON.parse(result.error.message)})
             }

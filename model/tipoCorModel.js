@@ -13,7 +13,7 @@ const sequelize = new Sequelize({
         console.error('Problema al conectar con la base de datos', error)
     }    
    
-const tipoCor = sequelize.define('TipoCorrelativa', {
+const tipoCor = sequelize.define('TipoCorre', {
     id: {
     type: DataTypes.STRING,
     primaryKey: true,
@@ -24,7 +24,7 @@ const tipoCor = sequelize.define('TipoCorrelativa', {
     }
        
 }, {
-        tableName:'tipoCorRELATIVA',
+        tableName:'TipoCorrelativa',
         timestamps: false
     })
 sequelize.sync()

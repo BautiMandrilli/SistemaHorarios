@@ -1,5 +1,5 @@
 import { tipoCorModel } from "../model/tipoCorModel.js";
-import { validatetipoCor, validatePartialtipoCor } from "../Schemas/tipoCorSchema.js";
+import { validateTipoCor, validatePartialTipoCor } from "../Schemas/tipoCorSchema.js";
 
 export class tipoCorController {
     static async getAll(req, res) {
@@ -27,7 +27,7 @@ export class tipoCorController {
 
     static async create (req, res) {
         try {
-        const result = validatetipoCor(req.body);
+        const result = validateTipoCor(req.body);
         console.log(result)
         
         if (result.error){
@@ -47,7 +47,7 @@ export class tipoCorController {
     static async update(req, res){
         try {
             const { id } = req.params;
-            const result = validatePartialtipoCor(req.body);
+            const result = validatePartialTipoCor(req.body);
             if (result.error) {
             return res.status(400).json({error :JSON.parse(result.error.message)})
             }

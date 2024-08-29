@@ -5,6 +5,8 @@ import { carrerasRouter } from './Routes/carreraRoutes.js';
 import { TC_Router } from './Routes/TC_Routes.js';
 import { fechaClasesRouter } from './Routes/fechaClaseRouter.js';
 import { tipoCorRouter } from './Routes/tipoCorRouter.js';
+import { matXcarRouter } from './Routes/matXcarRoutes.js';
+import { matXcorreRouter } from './Routes/matXcorreRoutes.js';
 
 const app = express();
 app.use(json())
@@ -16,6 +18,8 @@ app.use('/tipoCuatri', TC_Router)
 app.use('/carreras', carrerasRouter)
 app.use('/fechaClase', fechaClasesRouter)
 app.use('/tipoCorrelativa', tipoCorRouter)
+app.use('/matXcar', matXcarRouter)
+app.use('/matXcorre', matXcorreRouter)
 
 
 const PORT = process.env.PORT ?? 64000;

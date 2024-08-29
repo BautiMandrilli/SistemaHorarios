@@ -31,6 +31,10 @@ const Materia = sequelize.define('Materia', {
     acronimo: {
        type: DataTypes.STRING(3),
         allowNull: false
+    },
+    tipo: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 }, {
         tableName:'Materias',
@@ -55,10 +59,9 @@ export class materiaModel {
 
     static async create (input) {
 
-        const {name, acronimo} = input
-        console.log(name, acronimo)
-        console.log(input)
-        const newMateria = await Materia.create( {name, acronimo} )
+        const {name, acronimo, tipo} = input
+        
+        const newMateria = await Materia.create( {name, acronimo, tipo} )
         return newMateria
         
     }
