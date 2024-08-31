@@ -1,4 +1,4 @@
-import { DataTypes, Sequelize, Op, where} from "sequelize";
+import { DataTypes, Sequelize, Op} from "sequelize";
 
 const sequelize = new Sequelize({
     dialect: 'sqlite',
@@ -54,29 +54,26 @@ export class matXcarModel {
 
     static async create( input ){
         const {idMateria, idCar} = input
-        const newmatXcar = await matXcar.create({idMateria, idCar})
-        return newmatXcar
+        const newMatXcar = await matXcar.create({idMateria, idCar})
+        return newMatXcar
     }
 
     static async update( input ){
         const [updated] = await matXcar.update(input, {
             where: {id},
-            returning: true
+            
         })
         return updated ? input : ({message: "No se pudo actualizar la matXcar"})
     }
 
-    static async delete(input){
-        const {idMat, idCar} = input
-        const upperCar = idCar.toUpperCase()
-        const result = await matXcar.destroy({
-            [Op.and]: {
-                where: [
-                    {idMateria: idMat},
-                    {idCarrera: upperCar}
-                ]
-            }        
+    static async delete(idMateria, idCarrera){
+        
+        const result = await matXcorre.destroy({
+            where : {
+                idMateriaAInscribir : idMateria,
+                idCarrera : idCarrera
+            }
         })
         return result > 0
-    }
+     }
 }

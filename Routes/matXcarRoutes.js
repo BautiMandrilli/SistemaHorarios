@@ -7,4 +7,8 @@ matXcarRouter.get('/', matXcarController.getAll)
 
 matXcarRouter.get('/:id', matXcarController.getByFilter) 
 
+matXcarRouter.post('/', matXcarController.create)
+
+matXcarRouter.delete('/:idMateria/:idCarrea', matXcarController.delete)
+
 

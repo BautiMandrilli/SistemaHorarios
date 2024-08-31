@@ -7,7 +7,7 @@ import { fechaClasesRouter } from './Routes/fechaClaseRouter.js';
 import { tipoCorRouter } from './Routes/tipoCorRouter.js';
 import { matXcarRouter } from './Routes/matXcarRoutes.js';
 import { matXcorreRouter } from './Routes/matXcorreRoutes.js';
-
+import { principalRouter } from './Routes/tablaIntermediaRoutes.js';
 const app = express();
 app.use(json())
 app.disable('x-powered-by')
@@ -20,7 +20,7 @@ app.use('/fechaClase', fechaClasesRouter)
 app.use('/tipoCorrelativa', tipoCorRouter)
 app.use('/matXcar', matXcarRouter)
 app.use('/matXcorre', matXcorreRouter)
-
+app.use('principal', principalRouter)
 
 const PORT = process.env.PORT ?? 64000;
 

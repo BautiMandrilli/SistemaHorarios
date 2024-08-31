@@ -77,10 +77,12 @@ export class materiaModel {
        
 
         const [updated] = await Materia.update(input, {
-            where: { id },
-            returning: true,
+            where: { id }
         });
-
-        return updated ? input : ({message: "No se encontro la materia a actualizar"})
+        if (updated){
+            return  ({message: "se actualizo correcatmente la materia", 
+                    DatosActualizados: input})
+        }
+        return ({message: "No se encontro la materia a actualizar"})
     }
 }

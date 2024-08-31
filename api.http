@@ -31,3 +31,6 @@ Content-Type: : application/json
     "name": "Logica discreta",
     "acronimo": "LOS"
 }
+
+###
+GET http://localhost:64000/matXcorre/05b2f6d8-85b1-4a79-ba15-62ca8786442a

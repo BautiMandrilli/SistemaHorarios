@@ -1,5 +1,5 @@
 import { matXcarModel } from "../model/matXcarModel.js";
-//import { validatematXcar, validatePartialmatXcar } from "../Schemas/matXcarSchema.js";
+import { validatematXcar } from "../Schemas/matXcarSchema.js";
 
 export class matXcarController {
     static async getAll(req, res) {
@@ -25,17 +25,31 @@ export class matXcarController {
             res.status(500).json({ message: "Error al obtener la matXcar", error})
         }
     }
-    static async delete(req, res){
-        try {
-              const input = req.params /// <-- saca bien los datos
-              const result = await TC_Model.delete({input})
-              if (result === false){
-              res.status(400).json({ message :"No se pudo eliminar" })
-               }
-          return res.json({ message:" eliminado" })
+    static async create(req, res){
+
+        const result = validatematXcar(req.body)
+        
+        if(result.error){
+            return res.status(400).json({ error: JSON.parse(result.error.message)})
         }
-        catch(error) {
-          res.status(500).json({ message: "Error al eliminar ", error})
-        }  
-      }
+        const newMXC = await matXcarModel.create(result.data)
+        res.status(200).json(newMXC)
+    }
+
+    static async delete(req, res) {
+        try {
+            const { idMateria, idCarrera } = req.params; 
+            
+            const result = await matXcarModel.delete(idMateria, idCarrera);
+    
+            if (!result) { 
+                return res.status(400).json({ message: "No se pudo eliminar" });
+            }
+    
+            
+            return res.json({ message: "Eliminado" });
+        } catch (error) {
+            res.status(500).json({ message: "Error al eliminar", error });
+        }
+    }
 }
