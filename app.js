@@ -1,5 +1,6 @@
 import express, { json } from 'express';
 import jwt from 'jsonwebtoken';
+import {PORT, SECRET_KEY} from './config/env.js'
 import { authenticateToken, authorizeRole } from './middlewares/jwtToketn.js';
 import { materiasRouter } from './Routes/materiaRoutes.js';
 import { cursosRouter } from './Routes/cursoRoutes.js';
@@ -18,11 +19,11 @@ app.disable('x-powered-by');
 // Generar un token de Guest
 app.get('/login/guest', (req, res) => {
   const guestUser = { id: Date.now(), username: 'Guest', role: 'guest' };
-  const token = jwt.sign(guestUser, '8cc39134ff0a5421174782115b25ef0a85a940a99b74e6543c1bca9c6883d60d', { expiresIn: '1h' });
+  const token = jwt.sign(guestUser, SECRET_KEY, { expiresIn: '1h' });
   res.json({ token });
 });
 
-// Middleware de autenticación y autorización
+
 app.use('/materias', authenticateToken, materiasRouter);
 app.use('/cursos', authenticateToken, cursosRouter);
 app.use('/tipoCuatri', authenticateToken, TC_Router);
@@ -35,7 +36,7 @@ app.use('/matXcorre', authenticateToken, matXcorreRouter);
 // Rutas protegidas
 app.use('/principal', authenticateToken, authorizeRole('guest', 'user', 'administrator'), principalRouter);
 
-const PORT = process.env.PORT ?? 64000;
+
 app.listen(PORT, () => {
   console.log(`Escuchando en el puerto ${PORT}`);
 });
