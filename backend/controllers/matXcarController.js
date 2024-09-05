@@ -9,7 +9,7 @@ export class matXcarController {
         catch(error){
             res.status(500).json({ message: "Error al obtener todos los matXcars", error})
         }
-    }
+    } 
 
     static async getByFilter (req, res) {
         try {
