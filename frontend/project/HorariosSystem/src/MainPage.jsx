@@ -10,20 +10,15 @@
 }
 export function MainPage () {
    return (
-    
-    <main>
-    <h1 >¡Bienvenido!</h1>
+<main>
+  <h1 >¡Bienvenido!</h1>
     <p className="welcomePar">Esta página fue creada par que puedas acomodar mejor tus 
         horarios facultativos y puedas hacer un mejor plan al momento de 
         cursar. espero que sea de ayuda <strong>¡Mucha suerte!</strong>
     </p>
 
-    <span><strong>¡Empecemos!</strong></span>
-    <div className="button-conteiner"> <ArrowButton /> </div>
-    
-  
-    </main>
-    
-   )
-    
+    <span className="start-text"><strong>¡Empecemos!</strong></span>
+    <div className="button-conteiner" > <ArrowButton /> </div>
+</main>
+ )   
 }

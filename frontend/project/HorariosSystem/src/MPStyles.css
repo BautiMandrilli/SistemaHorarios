@@ -13,7 +13,7 @@ h1 {
 
 
 .welcomePar{
-    font-size: 40px;
+    font-size: 2.5rem;
     justify-content: center;
     align-content: center;
     margin-top: 0;
@@ -24,8 +24,8 @@ h1 {
 }
 
 #paragraphConteiner{
-    margin: 0 25%;
-    margin-top: 5%;
+    margin: 0 2.5rem;
+    margin-top: 0.5rem;
     justify-content: center;
     align-content: center;
 
@@ -48,7 +48,7 @@ h1 {
     padding: 0; 
     cursor: pointer; 
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 1rem;
     transition: background-color 350ms   
 }
 
@@ -59,8 +59,8 @@ h1 {
 }
 
 .size-6 /* eso es la flechita del icono*/{
-    width: 100px; 
-    height: 100px; 
+    width: 7rem; 
+    height: 7rem; 
     display: block; 
     color: white; 
 }
@@ -70,12 +70,12 @@ h1 {
     
 }
 
-span {
-    font-size: 80px;
+.start-text {
+    font-size: 4rem;
     position: relative;
     justify-content: center;
     display: flex;
-    margin-top: 5%;
+    margin-top: 5rem;
     margin-bottom: 0;
     color: #0071e3;
 }

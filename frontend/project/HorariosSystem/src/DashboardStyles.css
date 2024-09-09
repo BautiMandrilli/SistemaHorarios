@@ -1,0 +1,9 @@
+#regular-button{
+    background-color: black;
+    color: white;
+
+}
+
+#regular-button:hover{
+    background-color: red;
+}
