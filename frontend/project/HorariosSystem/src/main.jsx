@@ -1,17 +1,17 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import {  MainPage } from './MainPage.jsx'
-import { Dashboard } from './DashboardPage.jsx'
+import { App } from './App.jsx'
+import './App.css'
 import './MPStyles.css'
 import './DashboardStyles.css'
+import './SideMenu.css'
 
 
 
 
 createRoot(document.getElementById('root')).render(
-  <>
-  <MainPage />
-  <Dashboard />
+  <>  
+   <App />
   </>
   
 

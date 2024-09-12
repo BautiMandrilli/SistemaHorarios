@@ -7,3 +7,7 @@
 #regular-button:hover{
     background-color: red;
 }
+
+.dashboard-title{
+    font-size: medium;
+}

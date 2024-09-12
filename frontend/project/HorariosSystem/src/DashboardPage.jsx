@@ -1,31 +1,52 @@
 
+import { useState } from "react";
+
 const MateriaItem = ({ materiaName, acronimo }) => {
+    const [subjectCondition, setSubjectCondition] = useState(''); // Inicializa el estado
+
+    const handleConditionClick = (condition) => {
+        return () => {
+            setSubjectCondition(condition);
+        };
+    };
+
     return (
         <li type="none">
             <span type="text" id={acronimo} className="subject-checkbox" />
             <label htmlFor={acronimo}>{materiaName}</label>
-            <button id="regular-button">Regular</button>
-            
+            <button id="regular-button" onClick={handleConditionClick('regular')}>Regular</button>
+            <button id="aproved-button" onClick={handleConditionClick('aprobada')}>Aprobada</button>
         </li>
     );
 };
 
+export default MateriaItem;
+
+
+
 const AnioItem = ({ anioName, materias }) => {
+    
+    const [isOpen, setIsOpen] = useState(false)
+    
+    const handleOpenClick = () => {
+        setIsOpen(!isOpen)
+    } 
+    
     return (
         <li type="none">
-            <button className="drop-down-button">{anioName}</button>
-            <ul className="drop-down-conteiner">
+            <button className="drop-down-button" onClick={handleOpenClick}> {anioName} </button>
+           {isOpen && <ul className="drop-down-conteiner">
                 {materias.map((materia) => (
                     <MateriaItem key={materia.id} materiaName={materia.name} acronimo={materia.id} />
                 ))}
             </ul>
+            }
         </li>
     );
 };
 
 
-
-export function Dashboard() {
+export function DashboardList() {
     const primerAnioMaterias = [
         { id: 'f1', name: 'Física 1' },
         { id: 'aed', name: 'Algoritmo y estructura de datos' },
@@ -97,9 +118,8 @@ export function Dashboard() {
         <div className="dashboard">
             <h1 className="dashboard-title">Dashboard de horarios</h1>
             <div className="regulares-selector">
-                <button className="drop-down-button">Materias Regulares</button>
                 <ul className="menu">
-                    <AnioItem anioName="1 año" materias={primerAnioMaterias} />
+                    <AnioItem anioName="1 año" materias={primerAnioMaterias}  />
                     <AnioItem anioName="2 año" materias={segundoAnioMaterias} />
                     <AnioItem anioName="3 año" materias={tercerAnioMaterias} />
                     <AnioItem anioName="4 año" materias={cuartoAnioMaterias} />
