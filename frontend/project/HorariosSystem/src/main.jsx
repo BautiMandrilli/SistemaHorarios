@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { App } from './App.jsx'
 import './App.css'
 import './MPStyles.css'
-import './DashboardStyles.css'
+import './DashboardPageStyles.css'
 import './SideMenu.css'
 
 

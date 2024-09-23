@@ -4,14 +4,14 @@
   cursor: pointer;
   position: fixed;
   top: 16px;
-  left: 16px;
-  z-index: 1000;
+  left: 2px;
+  z-index: 1500;
 }
 
 .side-menu {
   position: fixed;
   top: 0;
-  left: -250px; /* Inicialmente fuera de la pantalla */
+  left: -250px; 
   width: 250px;
   height: 100%;
   background-color: #fff;
@@ -19,12 +19,12 @@
   transition: left 0.3s ease;
   padding: 20px;
   z-index: 1000;
-  overflow-y: auto; /* Permite el desplazamiento vertical */
-  
+  overflow-y: auto; 
 }
 
 .side-menu.open {
-  left: 0; /* Mueve el menú a la vista */
+  left: 0px;
+   
 }
 
 .close-button {
@@ -42,6 +42,8 @@
 
 .side-menu li {
   margin: 20px 0;
+  
+  
 }
 
 .overlay {
@@ -51,5 +53,5 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 500; /* Debe estar debajo del menú pero encima del resto del contenido */
+  z-index: 500; 
 }

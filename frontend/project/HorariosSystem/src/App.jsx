@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import SideMenuDashboard from "./DashboardSideMenu.jsx"
 import { DashboardList } from "./DashboardPage.jsx"
+import { MainPage } from "./MainPage.jsx"
 
 
 
@@ -10,32 +11,6 @@ function navigate(where_to_go) {
     window.history.pushState({}, '', where_to_go)
     const navigationEvent = new Event(NAVIGATION_EVENT)
     window.dispatchEvent(navigationEvent)
-}
-
-function HomePage() {
-    return(
-        <>
-        <h1>Hola!</h1>
-        <p>Esta es la pagina principal</p>
-        <button onClick={() => navigate('/about')}>Ir a sobre nosotros</button>
-        </>
-    )
-}
-
-function About() {
-    return(
-        <>
-        <h1>Hola!</h1>
-        <p>Esta es mi informacion personal!</p>
-        <span>-------------------------</span>
-        <button onClick={() => navigate('/home')}>Ir a la home page</button>
-        </>
-    )
-}
-function Hola() {
-    return(
-        <h1>Hola</h1>
-    )
 }
 
 
@@ -60,8 +35,8 @@ export function App () {
     return (
         <>
         <main>
-            {currentPath === '/' && <SideMenuDashboard />}
-
+            {currentPath === '/dashboard' && <SideMenuDashboard />}
+            {currentPath === '/welcome' && <MainPage />}
         </main>
         </>
     )

@@ -1,0 +1,75 @@
+/* Oculta el checkbox predeterminado */
+input[type="checkbox"] {
+    display: none;
+  }
+  
+  /* Estilo personalizado para que se vea como botón */
+  .custom-button {
+    display: inline-block;
+    padding: 2px 5px;
+    margin-right: 10px;
+    background-color: lightgray;
+    border: 2px solid gray;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: small;
+  }
+  
+  /* Estilo del botón cuando está seleccionado (checkbox marcado) */
+  input[type="checkbox"]:checked + .custom-button {
+    background-color: green;
+    color: white;
+    border-color: green;
+  }
+  
+  /* Estilo para el hover */
+  .custom-button:hover {
+    background-color: gray;
+    color: white;
+  }
+  
+#materiaName{
+    padding-right: 2%;
+}
+
+.all-button{
+    display: inline-block;
+    padding: 2px 5px;
+    margin-right: 10px;
+    background-color: lightgray;
+    border: 2px solid gray;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: small;
+}
+
+.all-button:hover{
+    background-color: gray;
+    color: white;
+}
+
+.dashboard-title{
+    font-size: medium;
+}
+
+.drop-down-button{
+    background-color: lightgray;
+    border: 2px solid white;
+    cursor: pointer;
+    padding: 5% 10%;
+    border-radius: 10%;
+    transition: 0.3s;
+   
+}
+
+.drop-down-button:hover{
+    background-color: gray;
+    color: white;
+
+}
